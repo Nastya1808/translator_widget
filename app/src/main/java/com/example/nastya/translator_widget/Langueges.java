@@ -1,6 +1,4 @@
-package com.example.nastya.lalala;
-
-import android.util.Log;
+package com.example.nastya.translator_widget;
 
 import java.util.HashMap;
 

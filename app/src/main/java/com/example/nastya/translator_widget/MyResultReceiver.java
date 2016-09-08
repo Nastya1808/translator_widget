@@ -1,4 +1,4 @@
-package com.example.nastya.lalala;
+package com.example.nastya.translator_widget;
 
 import android.os.Bundle;
 import android.os.Handler;

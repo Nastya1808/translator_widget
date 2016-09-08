@@ -1,10 +1,9 @@
-package com.example.nastya.lalala;
+package com.example.nastya.translator_widget;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.ResultReceiver;
-import android.util.Log;
 
 /**
  * Created by nastya on 20.05.16.

@@ -1,4 +1,4 @@
-package com.example.nastya.lalala;
+package com.example.nastya.translator_widget;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

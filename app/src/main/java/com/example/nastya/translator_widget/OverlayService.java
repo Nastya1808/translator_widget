@@ -1,4 +1,4 @@
-package com.example.nastya.lalala;
+package com.example.nastya.translator_widget;
 
 /**
  * Created by nastya on 08.05.16.
@@ -12,20 +12,15 @@ import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class OverlayService extends Service implements MyResultReceiver.Receiver {
 
