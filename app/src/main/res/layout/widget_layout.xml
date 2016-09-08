@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:visibility="visible"
+    android:background="#f547578d"
+    >
+    <LinearLayout
+        android:id="@+id/container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <TextView
+        android:id="@+id/hello_tv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Hello!"
+        android:textColor="#ffffff"
+        android:gravity="center"
+         />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_clear_white_18dp"
+           android:background="?android:selectableItemBackground"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
