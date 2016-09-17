@@ -12,18 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-    <TextView
-        android:id="@+id/hello_tv"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="4"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Hello!"
-        android:textColor="#ffffff"
-        android:gravity="center"
-         />
+        <TextView
+            android:id="@+id/textViewTranslation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/hello"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            />
 
         <ImageButton
+            android:id="@+id/buttonCloseWidget"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Translator</string>
+    <string name="turn_on_the_widget">Turn On The Widget</string>
+    <string name="widget_is_on">Widget is On</string>
+    <string name="widget_is_off">Widget is Off</string>
+    <string name="translate_from">Translate From</string>
+    <string name="translate_to">To</string>
+    <string name="hello">Hello!</string>
 </resources>

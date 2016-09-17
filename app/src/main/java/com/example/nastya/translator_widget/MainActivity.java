@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 1;
     private Spinner spinnerFrom;
     private Spinner spinnerTo;
-    private Switch turnOnSwitch;
+    private Switch aSwitch;
     private String currentLanguageFrom;
     private String currentLanguageTo;
     private SharedPreferences preferences;
@@ -50,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        turnOnSwitch = (Switch)findViewById(R.id.turnOn);
+        aSwitch = (Switch)findViewById(R.id.switchTurnOn);
 
-            turnOnSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
 
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
                 PERMISSION_REQUEST_CODE);
-        findViewById(R.id.frameLayout);
+        //findViewById(R.id.frameLayout);
     }
 
     @Override

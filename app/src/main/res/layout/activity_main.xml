@@ -10,19 +10,19 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Widget On"
-        android:id="@+id/turnOn"
+        android:text="@string/widget_is_on"
+        android:id="@+id/switchTurnOn"
         android:checked="false"
         android:layout_marginTop="32dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/textViewTitle"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Turn On Widget"
-        android:id="@+id/textView2"
+        android:text="@string/turn_on_the_widget"
+        android:id="@+id/textViewTitle"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="24dp" />
@@ -32,27 +32,27 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinnerFrom"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/textViewTranslateFrom"
         android:layout_alignParentStart="true"
         android:spinnerMode="dropdown"
-        android:layout_alignEnd="@+id/textView3" />
+        android:layout_alignEnd="@+id/textViewTranslateFrom" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Translate From:"
-        android:id="@+id/textView3"
+        android:text="@string/translate_from"
+        android:id="@+id/textViewTranslateFrom"
         android:layout_marginTop="28dp"
-        android:layout_below="@+id/turnOn"
+        android:layout_below="@+id/switchTurnOn"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="To:"
-        android:id="@+id/textView4"
+        android:text="@string/translate_to"
+        android:id="@+id/textViewTranslateTo"
         android:layout_below="@+id/spinnerFrom"
         android:layout_alignParentStart="true"
         android:layout_marginTop="19dp" />
@@ -61,9 +61,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerTo"
-        android:layout_alignLeft="@id/textView4"
+        android:layout_alignStart="@id/textViewTranslateTo"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/textViewTranslateTo"
         android:spinnerMode="dropdown"
         android:layout_alignEnd="@+id/spinnerFrom" />
 

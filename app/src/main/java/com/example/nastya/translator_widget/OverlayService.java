@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,18 +27,19 @@ public class OverlayService extends Service implements MyResultReceiver.Receiver
 
     private WindowManager windowManager;
 
-    private RelativeLayout rootLayout;
+    private RelativeLayout bigWidgetLayout;
     private LinearLayout contentContainerLayout;
 
     private TextView translation;
     private View bubble;
+    private ImageButton buttonClose;
 
     MyResultReceiver receiver;
 
     private String from;
     private String to;
 
-    private boolean isrootLayout = false;
+    private boolean isBigWidgetOnTheScreen = false;
 
     public static final String TAG = "Message";
     @Override
@@ -68,10 +70,11 @@ public class OverlayService extends Service implements MyResultReceiver.Receiver
         windowManager.addView(bubble, bubbleParams);
 
 
-        rootLayout = (RelativeLayout)LayoutInflater.from(this).
+        bigWidgetLayout = (RelativeLayout)LayoutInflater.from(this).
                 inflate(R.layout.widget_layout, null);
-        contentContainerLayout = (LinearLayout) rootLayout.findViewById(R.id.container_layout);
-        translation = (TextView)contentContainerLayout.findViewById(R.id.hello_tv);
+        contentContainerLayout = (LinearLayout) bigWidgetLayout.findViewById(R.id.container_layout);
+        translation = (TextView)contentContainerLayout.findViewById(R.id.textViewTranslation);
+        buttonClose = (ImageButton)contentContainerLayout.findViewById(R.id.buttonCloseWidget);
 
         final WindowManager.LayoutParams rootParams = new WindowManager.LayoutParams(
                 900, 170, WindowManager.LayoutParams.TYPE_PHONE,
@@ -106,13 +109,13 @@ public class OverlayService extends Service implements MyResultReceiver.Receiver
                             break;
                         case MotionEvent.ACTION_UP:
                             if (isClick) {
-                                if (!isrootLayout) {
-                                    windowManager.addView(rootLayout, rootParams);
-                                    isrootLayout = true;
+                                if (!isBigWidgetOnTheScreen) {
+                                    windowManager.addView(bigWidgetLayout, rootParams);
+                                    isBigWidgetOnTheScreen = true;
                                     getTranslation();
                                 } else {
-                                    if (rootLayout != null) windowManager.removeView(rootLayout);
-                                    isrootLayout = false;
+                                    if (bigWidgetLayout != null) windowManager.removeView(bigWidgetLayout);
+                                    isBigWidgetOnTheScreen = false;
                                 }
                             }
                             isClick = false;
@@ -129,7 +132,7 @@ public class OverlayService extends Service implements MyResultReceiver.Receiver
             });
 
 
-            rootLayout.setOnTouchListener(new View.OnTouchListener() {
+            bigWidgetLayout.setOnTouchListener(new View.OnTouchListener() {
                 private WindowManager.LayoutParams paramsF = rootParams;
                 private int initialY;
                 private float initialTouchY;
@@ -146,10 +149,18 @@ public class OverlayService extends Service implements MyResultReceiver.Receiver
                             break;
                         case MotionEvent.ACTION_MOVE:
                             paramsF.y = initialY + (int) (event.getRawY() - initialTouchY);
-                            windowManager.updateViewLayout(rootLayout, paramsF);
+                            windowManager.updateViewLayout(bigWidgetLayout, paramsF);
                             break;
                     }
                     return false;
+                }
+            });
+
+            buttonClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    windowManager.removeView(bigWidgetLayout);
+                    isBigWidgetOnTheScreen = false;
                 }
             });
 
@@ -163,7 +174,7 @@ public class OverlayService extends Service implements MyResultReceiver.Receiver
     public void onDestroy() {
         super.onDestroy();
         if (bubble != null) windowManager.removeView(bubble);
-        if (rootLayout != null && rootLayout.getWindowToken() != null) windowManager.removeView(rootLayout);
+        if (bigWidgetLayout != null && bigWidgetLayout.getWindowToken() != null) windowManager.removeView(bigWidgetLayout);
     }
 
     private void getTranslation() {
